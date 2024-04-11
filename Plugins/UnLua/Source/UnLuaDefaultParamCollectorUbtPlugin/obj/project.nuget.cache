@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1Ot9xgjwiIwv6XDMeBU/MhGVVL32382QBeekB2QDBe2oPuPx9hbTwxpCH+wKO7gmGFGkfQPlOIyp5+QRppb1hA==",
+  "success": true,
+  "projectFilePath": "E:\\I0gan\\Github\\squick-unreal-sdk\\Plugins\\UnLua\\Source\\UnLuaDefaultParamCollectorUbtPlugin\\UnLuaDefaultParamCollectorUbtPlugin.ubtplugin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\i0gan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
