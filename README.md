@@ -4,86 +4,136 @@
 
 Unreal Engine 5.3
 
-Squick框架虚幻开发包，包含客户端以及专用服务器Demo代码，使用了腾讯Unlua插件，逻辑全采用蓝图和Lua来进行编写。
+The Quick Framework Unreal Development Package includes client and dedicated server demo code, based on the **Tencent Unlua **plugin. The logic is entirely written using **blueprints** and **Lua**.
 
-登录协议: http+json
+Login protocol: http+json
 
-长连接协议: tcp+protobuf
+Long connection protocol: tcp+protobuf
 
 
 
-### 支持多个平台
+### The featrues
 
-##### 客户端
+Support UE clients and dedicated servers.
+
+Keep it simple, Just a network library.
+
+
+
+##### Client
 
 Mobile: Android、IOS
 
 PC: Windows、Linux
 
-##### 服务端
+##### Server
 
-WindowsGUI(开发用)、LinuxGUI(开发用)、Linux(Linux专用服务器，部署用)
-
-
-
-## 启动场景
-
-客户端入口场景： Maps/Login
-
-服务端入口场景：Maps/Server
-
-DS调试入口场景：Maps/DS_DEV
+WindowsGUI(Dev)、LinuxGUI(Dev)、Linux(Deploy)
 
 
 
-## DS服务器打包流程
+## Quick Start
+
+### Step 1. Open project
+
+Using Unreal Engine 5.3 to open **Action.uproject**
 
 
 
-#### 有渲染测试服务器打包
+### Step 2. Modify login URL
 
-设置Squick/Blueprints/SquickInstance 中的PlatformGroup变量为Server, ServerPlatform为 WindowsGUI或LinuxGUI
+Using VScode to open this project & modify
 
-BuildTarget选择Action
+![image-20240414190343195](./Docs/Images/image-20240414190343195.png)
 
-将Game的启动场景设置为 Maps/Server
-
-打包为Windows或Linux
+The default login url is http://127.0.0.1:8088, you can check your squick's login node ip & http_port
 
 
 
-#### 无渲染专用服务器打包
+### Step 3. Run this project
 
-设置/Squick/Blueprints/SquickInstance 中的PlatformGroup变量为Server, ServerPlatform为 Windows或Linux
+Open Level: Content/Maps/Login
 
-BuildTarget选择ActionServer
+![image-20240414190812275](/Docs/Images/image-20240414190812275.png)
 
-将Server的启动场景设置为 Maps/Server
-
-采用源码版UE进行打包为Windows或者Linux
+Just click the login
 
 
 
+### Step 4. Login Succ
+
+Client information.
+
+![image-20240414190812275](/Docs/Images/Snipaste_2024-04-14_19-10-18.png)
+
+Some logined player's info printed in screen and output log.
+
+The server log:
+
+![image-20240414190812275](/Docs/Images/Snipaste_2024-04-14_19-12-46.png)
 
 
-## 引用插件
+
+## Start up Scenes
+
+Client： Maps/Login
+
+DS Server：Maps/Server
+
+DS Server DEV：Maps/DS_DEV
+
+
+
+## DS pack steps
+
+
+
+#### Packaging with rendering DS server
+
+Set the **PlatformGroup** variable in **Squick/Blueprints/SquickInstance** to **Server** and the **ServerPlatform **to either **Windows GUI or Linux GUI**
+
+BuildTarget to select **Action**
+
+Set the startup scene of Game to Maps/Server
+
+Package as Windows or Linux
+
+
+
+#### Packaging with no rendering DS server 
+
+Set the **PlatformGroup** variable in **Squick/Blueprints/SquickInstance** to **Server** and the **ServerPlatform **to either **Windows or Linux**
+
+BuildTarget to select **ActionServer**
+
+Set the startup scene of the server to Maps/Server
+
+Using the source code version UE for packaging as Windows or Linux
+
+
+
+
+
+## Ref Plugins
 
 ### Unlua
 
-版本号：v2.3.6
+Version：v2.3.6
 
-[下载](https://img.shields.io/github/v/release/Tencent/UnLua)
+[Download](https://img.shields.io/github/v/release/Tencent/UnLua)
 
-#### 介绍
+#### Intro
 
-本项目集成了 Unlua 系列的插件，方便开发者使用lua脚本进行Protobuf + Socket的包自定义交互协议。
+This project integrates the Unlua series plugins, making it convenient for developers to use Lua scripts to customize the Protobuf+Socket package interaction protocol.
 
-Lua与蓝图、C++互相调用，请参考：https://github.com/Tencent/UnLua
+Lua calls each other with Blueprint and C++, please refer to：https://github.com/Tencent/UnLua
 
-Unlua也接入了常使用的基本网络库，在Plugins/UnLuaExtensions/下，分别为 LuaProtobuf、LuaRapidjson、LuaSocket，但没有提供相关学习例子，我进行了部分整理，如下：
 
-LuaProtobuf序列化反序列化如何使用，请参考： https://github.com/starwing/lua-protobuf
 
-LuaSocket如何使用，请参考：https://github.com/lunarmodules/luasocket
+Unlua also integrates commonly used basic network libraries, namely LuaProtobuf, LuaRapidjson, and LuaSocket, under Plugins/UnLuaextensions/. However, no relevant learning examples are provided. I have partially organized them as follows:
 
-LuaRapidjson如何使用，请参考：https://github.com/xpol/lua-rapidjson
+**LuaProtobuf ** How to use serialization and deserialization, please refer to： https://github.com/starwing/lua-protobuf
+
+**LuaSocket** How to use, please refer to：https://github.com/lunarmodules/luasocket
+
+**LuaRapidjson** How to use, please refer to：https://github.com/xpol/lua-rapidjson
