@@ -9,8 +9,8 @@ Player = Object({})
 
 function Player:Create(net)
     self.net = net
-    self.net:RegisteredDelegation(PlayerRPC.ACK_PLAYER_ENTER, self.OnAckPlayerEnter, self)
-    self.net:RegisteredDelegation(PlayerRPC.ACK_PLAYER_DATA, self.OnAckPlayerData, self)
+    self.net:RegisteredDelegation(MsgId.IdAckPlayerEnter, self.OnAckPlayerEnter, self)
+    self.net:RegisteredDelegation(MsgId.IdAckPlayerData, self.OnAckPlayerData, self)
 end
 
 -- 请求进入游戏
@@ -22,7 +22,7 @@ end
 
 function Player:ReqPlayerEneter()
     local req = {}
-    self.net:SendPB(PlayerRPC.REQ_PLAYER_ENTER, "rpc.ReqPlayerEnter", req )
+    self.net:SendPB(MsgId.IdReqPlayerEnter, "rpc.ReqPlayerEnter", req )
 end
 
 function Player:OnAckPlayerEnter(data)

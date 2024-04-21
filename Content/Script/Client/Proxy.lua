@@ -9,7 +9,7 @@ Proxy = Object({})
 
 function Proxy:Create(net)
     self.net = net
-    self.net:RegisteredDelegation(ProxyRPC.ACK_CONNECT_PROXY, self.OnAckConnectProxy, self)
+    self.net:RegisteredDelegation(MsgId.IdAckConnectProxy, self.OnAckConnectProxy, self)
 end
 
 function Proxy:OnReqConnectProxy(data)
@@ -20,7 +20,7 @@ function Proxy:OnReqConnectProxy(data)
         login_node = data.login_node,
         signatrue = data.signatrue,
     }
-    self.net:SendPB(ProxyRPC.REQ_CONNECT_PROXY, "rpc.ReqConnectProxy", req )
+    self.net:SendPB(MsgId.IdReqConnectProxy, "rpc.ReqConnectProxy", req )
 end
 
 function Proxy:OnAckConnectProxy(data)

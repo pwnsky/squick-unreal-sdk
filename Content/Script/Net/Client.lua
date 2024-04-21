@@ -67,7 +67,7 @@ function NetClient:Create(type)
     self.cacheSize = 0
     self.lastHeartbeatTime = 0
 
-    self:RegisteredDelegation(ProxyRPC.ACK_HEARTBEAT, self.OnAckHeartBeat, self)
+    self:RegisteredDelegation(MsgId.IdAckHeartBeat, self.OnAckHeartBeat, self)
 
     if(type == 'tcp') then
         self.client = Tcp.New(self)
@@ -305,7 +305,7 @@ end
 -- 每3秒由 Client 进行调用
 function NetClient:OnReqHeartBeat()
     self.heartBeatIndex = self.heartBeatIndex + 1
-    self:SendData(ProxyRPC.REQ_HEARTBEAT, assert(pb.encode("rpc.AckHeartBeat", { index = self.heartBeatIndex})))
+    self:SendData(MsgId.IdReqHeartBeat, assert(pb.encode("rpc.ReqHeartBeat", { index = self.heartBeatIndex})))
 end
 
 -- 服务端返回

@@ -12,7 +12,7 @@ Long connection protocol: tcp+protobuf
 
 
 
-### The featrues
+### The features
 
 Support UE clients and dedicated servers.
 
