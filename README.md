@@ -1,5 +1,7 @@
 # Squick Unreal SDK
 
+Version: 1.1.1
+
 ## Intro
 
 Unreal Engine 5.3
