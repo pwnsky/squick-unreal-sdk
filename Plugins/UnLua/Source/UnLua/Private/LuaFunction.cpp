@@ -141,7 +141,11 @@ void ULuaFunction::Override(UFunction* Function, UClass* Class, bool bAddNew)
     check(Function && Class && !From.IsValid());
 
 #if WITH_METADATA
+#if UE_VERSION_NEWER_THAN(5, 5, 0)
+    FMetaData::CopyMetadata(Function, this);
+#else
     UMetaData::CopyMetadata(Function, this);
+#endif
 #endif
 
     bActivated = false;
@@ -286,7 +290,7 @@ void ULuaFunction::Bind()
     }
     else
     {
-#if UE_VERSION_NEWER_THAN(5, 2, 0)
+#if UE_VERSION_NEWER_THAN(5, 2, 1)
         Super::Bind();
 #else
         SetNativeFunc(ProcessInternal);
