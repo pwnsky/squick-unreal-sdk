@@ -33,6 +33,7 @@ MsgId = {
   IdAckDisconnectProxy = 8007, IdReqHeartBeat = 8008, IdAckHeartBeat = 8009, IdAckKickOff = 8010, 
   IdReqPlayerEnter = 12004, IdAckPlayerEnter = 12005, IdReqPlayerLeave = 12006, 
   IdAckPlayerLeave = 12007, IdReqPlayerData = 12008, IdAckPlayerData = 12009, 
+  IdTReqConfig = 14900, IdTAckConfig = 14901, IdTReqDb = 14902, IdTAckDb = 14903, 
 }
 
 TestRPC = {
