@@ -1,0 +1,3 @@
+[submodule "Res"]
+	path = Res
+	url = https://github.com/pwnsky/squick-res.git
