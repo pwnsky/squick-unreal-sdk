@@ -49,3 +49,4 @@ local Scene = {
 		Width=500,
 	},
 }
+return Scene

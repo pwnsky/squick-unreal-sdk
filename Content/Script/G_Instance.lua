@@ -12,7 +12,7 @@ require "Enum"
 require "Common.Init"
 require "Test.Main"
 require "Proto.Init"
-
+require "Excel.Init"
 
 -- 全局变量值，方便开发测试
 IsServer = false -- 是否为服务器
