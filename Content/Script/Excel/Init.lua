@@ -1,9 +1,15 @@
 -- don't edit it, generated from xlsx files by tools
 Excel = {}
 Excel["IObject"] =  require("Excel/Data/IObject")
+Excel["Activity"] = require("Excel/Data/Activity/Activity")
+Excel["ActivityQuest"] = require("Excel/Data/Quest/ActivityQuest")
+Excel["ActivityType"] = require("Excel/Data/Activity/ActivityType")
 Excel["Group"] = require("Excel/Data/Group")
+Excel["Language"] = require("Excel/Data/Language")
 Excel["Object"] = require("Excel/Data/Object")
 Excel["Player"] = require("Excel/Data/Player")
 Excel["Property"] = require("Excel/Data/Example/Property")
+Excel["Quest"] = require("Excel/Data/Quest/Quest")
+Excel["QuestCondition"] = require("Excel/Data/Quest/QuestCondition")
 Excel["Record"] = require("Excel/Data/Example/Record")
 Excel["Scene"] = require("Excel/Data/Scene")
